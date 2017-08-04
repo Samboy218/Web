@@ -18,12 +18,24 @@
         <h2>{{ site.description | default: site.github.project_tagline }}</h2>
       </div>
 
+    <curr>
+    <ul>
+        {% assign split_path= (page.url | split:"/") %}
+        {% for item in split_path %}
+            {% assign curr_path = curr_path | append: item %}
+            <li><span><a href="{{curr_path | absolute_url}}">{{item}}</a></span></li>
+            {% assign curr_path = curr_path | append: "/" %}
+        {% endfor %}
+    </ul>
+    </curr>
+
     <nav>
     <ul>
         <li><span><a href="/">Home</a></span></li>
         <li><span><a href="/about">About</a></span></li>
         <li><span><a href="https://www.github.com/Samboy218" target="_blank">Github</a></span></li>
         <li><span><a href="/download/Resume.pdf">Resume</a></span></li>
+        <li><span><a href="/Projects">Projects</a></span></li>
     </ul>
     </nav>
 

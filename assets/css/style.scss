@@ -29,3 +29,31 @@ nav span {
 curr a {
     text-decoration: none;
 }
+
+#content {
+    position: relative;
+    width: 100%;
+}
+
+#main {
+    position: relative;
+    margin-right: 250px;
+}
+
+#sidebar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 240px;
+}
+
+.post_list_item {
+    border: 5px solid #002b36;
+    border-radius: 2px 10px 2px 10px;
+    padding: 1px;
+}
+
+#main_header {
+    margin-bottom: 0px;
+}

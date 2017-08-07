@@ -10,11 +10,10 @@
 
   <body>
 
-    <header>
+    <header id="main_header">
       <div class="container">
-          <h1>{{ site.title | default: site.github.repository_name }}
-              <img src="/assets/images/ElianLogo2.png" alt="Logo"></img></h1>
-        <h2>{{ site.description | default: site.github.project_tagline }}</h2>
+        <h1>{{ site.title | default: site.github.repository_name }}</h1>
+        <h2>{{ site.description | default: site.github.project_tagline }}<img src="/assets/images/ElianLogo2.png" alt="Logo"></img></h2>
         <nav>
         <ul>
             <li><span><a href="/">Home</a></span></li>
@@ -49,9 +48,20 @@
 
     </header>
 
-    <div class="container">
-      <section id="main_content">
+    <div id="content">
+      <section id="main">
         {{ content }}
+      </section>
+      <section id="sidebar">
+        <ul>
+            <h3>Recent Posts</h3>
+            {% for post in site.posts %}
+                <div class="post_list_item">
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                    {{ post.excerpt }}
+                </div>
+            {% endfor %}
+        </ul>
       </section>
     </div>
   </body>

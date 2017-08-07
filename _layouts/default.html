@@ -30,10 +30,13 @@
     <curr>
     <span>
         <div id="parent">
+        <a href="/">/</a>
         {% assign split_path= (page.url | split:"/") %}
         {% for item in split_path %}
             {% assign curr_path = curr_path | append: item %}
-            {% if forloop.index == 2 %}
+            {% if forloop.index == 1 %}
+                {% continue %}
+            {% elsif forloop.index == 2 %}
                 <a href="{{curr_path | absolute_url}}">{{item}}</a>
             {% else %}
                 <a href="{{curr_path | absolute_url}}">/{{item}}</a>

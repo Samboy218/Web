@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <title>{{ site.title | default: site.github.repository_name }} by {{ site.github.owner_name }}</title>
+  </head>
+
+  <body>
+
+    <header id="main_header">
+        <img id="logo" src="/assets/images/ElianLogo2.png" alt="Logo"></img>
+        <div class="container">
+            <h1>{{ site.title | default: site.github.repository_name }}</h1>
+            <h2>{{ site.description | default: site.github.project_tagline }}</h2>
+        </div>
+        <nav>
+        <ul>
+            <li><span><a href="/">Home</a></span></li>
+            <li><span><a href="/about">About</a></span></li>
+            <li><span><a href="https://www.github.com/Samboy218" target="_blank">Github</a></span></li>
+            <li><span><a href="/download/Resume.pdf">Resume</a></span></li>
+            <li><span><a href="/Projects">Projects</a></span></li>
+        </ul>
+        </nav>
+        <curr>
+        <span>
+            <div id="parent">
+            <a href="/">/</a>
+            {% assign split_path= (page.url | split:"/") %}
+            {% for item in split_path %}
+                {% assign curr_path = curr_path | append: item %}
+                {% if forloop.index == 1 %}
+                    {% continue %}
+                {% elsif forloop.index == 2 %}
+                    <a href="{{curr_path | absolute_url}}">{{item}}</a>
+                {% else %}
+                    <a href="{{curr_path | absolute_url}}">/{{item}}</a>
+                    {% endif %}
+                {% assign curr_path = curr_path | append: "/" %}
+            {% endfor %}
+            </div>
+        </span>
+        </curr>
+
+    </header>
+
+    <div>
+      <section style="padding-top:2px;">
+        {{ content }}
+        {% for post in site.posts %}
+            <div class="post_list_item" style="padding-top:4px;">
+                <a href="{{ post.url }}">{{ post.title }}</a>
+                {{ post.excerpt }}
+                {{ post.date }}
+            </div>
+        {% endfor %}
+      </section>
+    </div>
+  </body>
+</html>
+

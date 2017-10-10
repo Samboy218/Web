@@ -5,5 +5,7 @@
 layout: default
 ---
 
-Site currently under construction
 
+Hello! My name is Sam, and welcome to my site. Things are still getting built, but feel free to look around the little that is here.
+
+Thanks!
